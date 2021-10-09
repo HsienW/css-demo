@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Flex box</title>
+    <style>
+        .flex-box {
+            width: 1000px;
+            height: 300px;
+            border: blue 5px solid;
+            display: flex;
+            flex-direction: row;
+        }
+        .flex-box-2 {
+            width: 1000px;
+            height: 700px;
+            border: blue 5px solid;
+            display: flex;
+            flex-direction: column;
+        }
+        .flex-box-item {
+            flex: 1;
+        }
+
+        /*flex 是縮寫，裡面依序包含三個屬性 flex-grow、flex-shrink 和 flex-basis，如果只設定一個則是 flex-grow。*/
+        /*flex-grow: 元件的伸展性，是一個數值，當空間分配還有剩餘時的當前元件的伸展性，預設值為 0，如果設置為 0 則不會縮放。*/
+        /*flex-shrink: 元件的收縮性: 元件的伸展性，是一個數值，當空間分配還不足時的當前元件的收縮性，預設值為 1，如果設置為 0 則不會縮放。*/
+        /*flex-basis: 元件的基準值，可使用不同的單位值*/
+
+        .box1 {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+        .box2 {
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+        }
+        .box3 {
+            width: 300px;
+            height: 300px;
+            background-color: orchid;
+        }
+        .box4 {
+            flex-grow: 1;
+            border: green;
+        }
+        .box5 {
+            flex-basis: 200px;
+            background-color: gray;
+        }
+        .box6 {
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<!-- 實現三列寬度相同 -->
+<div class="flex-box">
+    <div class="box1 flex-box-item"></div>
+    <div class="box2 flex-box-item"></div>
+    <div class="box3 flex-box-item"></div>
+</div>
+
+<!-- 上下兩行, 行高度自適應, 下行高度 200px -->
+<div class="flex-box-2">
+    <div class="box4"></div>
+    <div class="box5"></div>
+</div>
+<script>
+</script>
+</body>
+</html>
