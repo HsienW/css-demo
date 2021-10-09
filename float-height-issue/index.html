@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Float Height Issue</title>
+    <style>
+        .box1 {
+            border: 10px solid red;
+            /*overflow: auto;*/
+        }
+        .box2 {
+            width: 100px;
+            height: 300px;
+            background-color: orange;
+            float: left;
+        }
+        .box3 {
+            width: 300px;
+            height: 300px;
+            background-color: orchid;
+        }
+        .clear {
+            clear: both;
+        }
+        .box4 {
+            border: 10px solid green;
+            overflow: auto;
+        }
+        .box5 {
+            width: 100px;
+            height: 300px;
+            background-color: gray;
+            float: left;
+        }
+        .box6 {
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<!-- 當父元素沒有固定高度, 依賴子元素高度撐開, 若子元素使用了 float 會造成父元素高度塌陷 -->
+<!-- 兩種解法 1.添加 clear 屬性 2.開啟父元素的 BFC -->
+
+<!-- 1.添加 clear 屬性  clear 属性, 有 left right both 等等跟 float 一樣的值, 它可以使元素不受前面 float 影響-->
+<!-- 缺點是為了清除浮動添加沒意義的 dom 太多了的話影響渲染, 後期維護也不方便 -->
+<div class="box1">
+    <div class="box2"></div>
+    <div class="clear"></div>
+</div>
+<div class="box3"></div>
+
+<!-- 2.開啟父元素的 BFC 它會使元素產生自己的渲染區塊, 不受其他的元素影響 -->
+<div class="box4"> <!-- 對父元素開啟 overflow 會觸發 BFC -->
+    <div class="box5"></div>
+</div>
+<div class="box6"></div>
+<script>
+</script>
+</body>
+</html>
